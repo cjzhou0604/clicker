@@ -317,6 +317,23 @@ class ClickerTests(unittest.TestCase):
         )
         self.assertFalse(clicker.running)
 
+    def test_short_interval_is_not_rounded_to_system_tick(self):
+        sender = FakeSender()
+        clicker = Clicker(sender=sender)
+        self.addCleanup(clicker.stop)
+        finished = FinishCallback()
+        settings = {
+            "kind": "left", "interval": 0.001, "count": 10, "key": "A",
+            "position": False, "x": 0, "y": 0,
+        }
+
+        started = time.perf_counter()
+        self.assertTrue(clicker.start(settings, finished))
+        self.assertEqual(finished.result(), (True, "连点完成"))
+        per_click = (time.perf_counter() - started) / 10
+        # 系统计时器粒度是 15.625ms；退回 Event.wait 超时的话这里会跳到 0.015 左右。
+        self.assertLess(per_click, 0.01)
+
 
 class MacroRunnerTests(unittest.TestCase):
     def setUp(self):

@@ -5,7 +5,7 @@ Windows 桌面自动化工具，三个功能：**连点**、**录制**、**宏**
 
 逐页的操作步骤、快捷键写法、数据文件格式和故障排查见 **[USER_GUIDE.md](USER_GUIDE.md)**。
 
-不想折腾环境的话，仓库的 **Releases** 页面提供 `Clicker-Setup-1.0.0.exe`（安装包）和免安装
+不想折腾环境的话，仓库的 **Releases** 页面提供 `Clicker-Setup-1.0.1.exe`（安装包）和免安装
 的 `Clicker.exe`（需连同 `_internal` 一起下载）；仓库里只放源码和文档，编译产物由
 `.gitignore` 排除。
 
@@ -18,7 +18,7 @@ Windows 桌面自动化工具，三个功能：**连点**、**录制**、**宏**
 免安装，直接双击 **`Clicker.exe`**（1.9 MB，旁边的 `_internal` 是它的运行时，两者必须同目录）。
 程序不依赖系统临时目录，启动即用；`%TEMP%` 不可用或被安全软件拦下等情况都不会再影响启动。
 
-想装进开始菜单、能在控制面板里卸载，就运行安装包 `build\installer\Clicker-Setup-1.0.0.exe`，
+想装进开始菜单、能在控制面板里卸载，就运行安装包 `build\installer\Clicker-Setup-1.0.1.exe`，
 做法见下面的[安装包](#安装包)。
 
 也可以在源码模式下运行：
@@ -58,7 +58,7 @@ build\venv\Scripts\python.exe build\finalize.py      # 把产物铺到本文件�
 build\make_installer.bat        # 等价于 ISCC.exe build\installer.iss
 ```
 
-产物是 `build\installer\Clicker-Setup-1.0.0.exe`（约 9.4 MB），它把 exe、`_internal`、
+产物是 `build\installer\Clicker-Setup-1.0.1.exe`（约 9.4 MB），它把 exe、`_internal`、
 `README.md`、`USER_GUIDE.md` 一起装上，行为如下：
 
 - 默认装到 `%LOCALAPPDATA%\Programs\Clicker`，全程**不需要管理员权限**；安装程序开头问

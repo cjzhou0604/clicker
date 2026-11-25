@@ -1,14 +1,14 @@
 ﻿; 连点器安装包脚本（Inno Setup 7）。
 ; 编译：build\make_installer.bat，或
 ;   "E:\Program Files\Inno Setup 7\ISCC.exe" build\installer.iss
-; 产物：build\installer\Clicker-Setup-1.0.0.exe
+; 产物：build\installer\Clicker-Setup-1.0.1.exe
 ;
 ; 本文件含中文，必须存成「UTF-8 带 BOM」，否则 Inno 会按 ANSI 读取而出现乱码。
 ; 产物文件名一律 ASCII，中文只出现在界面文字里。
 
 #define MyAppName "连点器"
 #define MyAppNameEn "Clicker"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppExeName "Clicker.exe"
 
 [Setup]
@@ -37,7 +37,7 @@ PrivilegesRequiredOverridesAllowed=dialog
 DisableProgramGroupPage=yes
 CloseApplications=yes
 RestartApplications=no
-VersionInfoVersion=1.0.0.0
+VersionInfoVersion=1.0.1.0
 VersionInfoProductName={#MyAppName}
 ShowLanguageDialog=no
 

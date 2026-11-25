@@ -9,6 +9,10 @@ from .win32 import InputSender, normalize_hotkey
 
 FinishCallback = Callable[[bool, str], None]
 
+# Event.wait 的超时会被系统计时器向上取整到 15.625ms 的整数倍，0.01 秒的间隔就变成
+# 0.0156 秒。改用 sleep 分片轮询停止标志，短间隔才是真的；1ms 一片也保证急停不拖沓。
+_SLEEP_SLICE = 0.001
+
 
 class TaskRunner:
     """一个可中断的后台任务，wake() 可立即打断当前等待。"""
@@ -43,7 +47,14 @@ class TaskRunner:
             thread.join(2)
 
     def sleep(self, seconds: float) -> bool:
-        return self._wake.wait(max(0.0, seconds))
+        deadline = time.perf_counter() + max(0.0, seconds)
+        while True:
+            if self._wake.is_set():
+                return True
+            remaining = deadline - time.perf_counter()
+            if remaining <= 0:
+                return False
+            time.sleep(min(remaining, _SLEEP_SLICE))
 
     def _finish(self) -> None:
         with self._stop_lock:

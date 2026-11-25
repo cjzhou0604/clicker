@@ -26,7 +26,7 @@ echo 正在编译安装包...
 if errorlevel 1 goto :fail
 
 echo.
-echo 完成：build\installer\Clicker-Setup-1.0.0.exe
+echo 完成：build\installer\Clicker-Setup-1.0.1.exe
 echo 建议接着自检：python tests\installer_check.py
 pause
 exit /b 0

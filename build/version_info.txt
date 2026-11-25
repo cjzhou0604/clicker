@@ -18,12 +18,12 @@ VSVersionInfo(
         [
             StringStruct(u"CompanyName", u""),
             StringStruct(u"FileDescription", u"Windows 连点器：连点、录制、宏"),
-            StringStruct(u"FileVersion", u"1.0.0.0"),
+            StringStruct(u"FileVersion", u"1.0.1.0"),
             StringStruct(u"InternalName", u"Clicker"),
             StringStruct(u"LegalCopyright", u""),
             StringStruct(u"OriginalFilename", u"Clicker.exe"),
             StringStruct(u"ProductName", u"连点器"),
-            StringStruct(u"ProductVersion", u"1.0.0.0"),
+            StringStruct(u"ProductVersion", u"1.0.1.0"),
         ],
       )
     ]),
