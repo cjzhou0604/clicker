@@ -1,0 +1,14 @@
+# 打包产物：从源码用 build\rebuild.bat 和 build\make_installer.bat 随时可以再生成
+Clicker.exe
+_internal/
+build/venv/
+build/work/
+build/dist/
+build/installer/
+
+# 本地数据：设置、录制和宏属于使用者自己，不进版本库
+data/
+
+# Python 缓存
+__pycache__/
+*.pyc

@@ -1,0 +1,15 @@
+# 仓库内部统一存 LF，签出时按下面的规则还原换行符。
+* text=auto
+
+# cmd 解析批处理依赖 CRLF，签出成 LF 会直接跑不起来。
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Inno Setup 脚本同样用 CRLF；文件必须保持 UTF-8 带 BOM，这条只管换行不管编码。
+*.iss text eol=crlf
+
+# 二进制，禁止任何换行符转换。
+*.ico binary
+*.png binary
+*.exe binary
+*.dll binary
